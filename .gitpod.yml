@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: MIT
+# This configuration is copied from ~ajhalili2006's repository at 
+# https://mau.dev/andreijiroh.dev/website/-/blob/4a7a5c21e270023f52ac023aab433e21dbfed147/.gitpod.yml,
+# originally under CC-BY-SA.4.0 and MPL-2.0 but relicensed to match repo template license.
+
+# Visit https://quay.io/gitpodified-workspace-images/mkdocs-deps for image tags and docs
+image: quay.io/gitpodified-workspace-images/mkdocs-deps:nightly
+
+tasks:
+  - init: |
+      pipenv install
+    command: |
+      pipenv run -- mkdocs serve --watch overrides --watch-theme --livereload
+    name: site-localdev
+
+ports:
+  - port: 8000
+    onOpen: notify
+    visibility: public
