@@ -53,16 +53,16 @@ jobs:
         uses: actions/cache@v3
         id: cache
         with:
-          key: mkdocs-material-${{ env.cache_id }}
+          key: buildkit-${{ env.cache_id }}
           path: .cache
           restore-keys: |
-            mkdocs-material-
+            buildkit-
 
       - name: Install dependencies
         run: sudo apt-get install pngquant
 
       - name: Install Python dependencies
-        run: pipenv install
+        run: pip install -r requirements.txt -p
 
       - name: Deploy documentation
         env:
