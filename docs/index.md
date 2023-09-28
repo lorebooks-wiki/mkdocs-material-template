@@ -3,12 +3,20 @@ name: Home
 
 # Welcome to your new docs site!
 
+_Last updated: 2023-09-28_
+
 If you seeing this page, that means the CI successfully built your site. If that's not the case,
 check the CI logs and your configuration for debugging and if you need assistance,
 hop over at [our Zulip Cloud organization](https://recaptime-dev.zulipchat.com), under the
 `#lorebooks.wiki/devel` stream.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org) and [theme docs](https://squidfunk.github.io/mkdocs-material).
+For full documentation visit [mkdocs](https://www.mkdocs.org) and [Material theme docs](https://squidfunk.github.io/mkdocs-material).
+
+## New site checklist
+
+* [ ] Update README with your project's own documentation. (The template is provided for you at end of the README)
+* [ ] Configure Mkdocs per your needs
+* [ ] Pick a new license for your docs site sources (or stay with MIT license)
 
 ## Commands
 
@@ -34,6 +42,10 @@ INFO    -  [08:00:34] Browser connected: https://probable-fiesta-x996g7g99p5h69g
 
 ## Project layout
 
+    .github
+        workflows
+            site-build.yml       # Deploy configuration for GitHub Pages
+        FUNDING.yml              # Sponsor links
     mkdocs.yml                   # The base configuration file.
     mkdocs.readthedocs.yml       # Configuration specific to RTD.io
     docs/
