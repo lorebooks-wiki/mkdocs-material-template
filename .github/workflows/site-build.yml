@@ -62,12 +62,26 @@ jobs:
         run: sudo apt-get install pngquant
 
       - name: Install Python dependencies
-        run: pip install -r requirements.txt -p
+        run: pip install -r requirements.txt
 
       - name: Deploy documentation
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           PYTHONPATH: .
         run: |
-          mkdocs gh-deploy --force
+          mkdocs build --clean
           mkdocs --version
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
+
+      - name: Save build cache
+        uses: actions/cache/save@v3
+        with:
+          key: mkdocs-material-${{ hashfiles('.cache/**') }}
+          path: .cache
