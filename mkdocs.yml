@@ -117,3 +117,22 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+plugins: 
+  - search
+  - blog:
+      post_url_format: "{slug}"
+      post_url_max_categories: 2
+      post_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      draft_if_future_date: true
+      authors_file: "{blog}/authors.yml"
+  - rss:
+      enabled: !ENV [CI, false]
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags 
