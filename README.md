@@ -1,4 +1,4 @@
-# Material for Mkdocs template
+# lorebooks.wiki Material for Mkdocs template
 
 [![join chat on zulip](https://img.shields.io/badge/zulip-join%20chat-blue?style=flat-square&logo=zulip)](https://recaptime-dev.zulipchat.com)
 
@@ -9,8 +9,10 @@ and files into your local copy.
 
 ## Use this repo
 
-* **GitHub**: [Use as repo template](https://github.com/new?template_name=mkdocs-material-template&template_owner=lorebooks-wiki)
+* **GitHub**: [Use as repo template](https://github.com/new?template_name=mkdocs-material-template&template_owner=lorebooks-wiki) or just fork
 * **GitLab and others**: Duplicate/clone/fork this repo into your namespace where you can create repositories
+
+You can see the demo at <https://mkdocs-material.templates.lorebooks.eu.org> for instructions on setup and preview the config we have did.
 
 ## License
 
