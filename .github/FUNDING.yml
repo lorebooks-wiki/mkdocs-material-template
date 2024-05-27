@@ -1,4 +1,7 @@
-github: [squidfunk]
+# If hosted within lorebooks-wiki (or afliated RecapTime.dev org), feel free to replace the github
+# field with your own (once you're onboarded to GitHub Sponsors as individual dev).
+# Otherwise, you do you.
+github: [squidfunk,ajhalili2006]
 open_collective: recaptime-dev
 liberapay: recaptime-dev
-custom: ["https://go.recaptime.eu.org/sponsor"]
+custom: ["https://recaptime.dev/donate"]
