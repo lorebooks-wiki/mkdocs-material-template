@@ -1,7 +1,8 @@
 site_name: Material for Mkdocs - Repo Template by @lorebooks-wiki
 site_author: Recap Time Squad
-site_url: https://mkdocs-material.templates.lorebooks.eu.org
+site_url: https://mkdocs-material.templates.lorebooks.wiki
 
+edit_url: blob/main/docs
 repo_name: lorebooks-wiki/mkdocs-material-template
 repo_url: https://github.com/lorebooks-wiki/mkdocs-material-template
 
