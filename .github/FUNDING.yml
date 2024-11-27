@@ -1,7 +1,9 @@
-# If hosted within lorebooks-wiki (or afliated RecapTime.dev org), feel free to replace the github
-# field with your own (once you're onboarded to GitHub Sponsors as individual dev).
-# Otherwise, you do you.
-github: [squidfunk,ajhalili2006]
-open_collective: recaptime-dev
-liberapay: recaptime-dev
-custom: ["https://recaptime.dev/donate"]
+# yaml-language-server: $schema=https://json.schemastore.org/github-funding.json
+
+# If hosted within lorebooks-wiki (or another afliated RecapTime.dev org), feel free to
+# update the funding links with your own. Otherwise, you do you.
+github: [ajhalili2006]
+custom:
+- https://hcb.hackclub.com/donations/start/recaptime-dev
+- https://lorebooks.wiki/donate
+- https://sponsors.andreijiroh.dev/?ref=recaptime-dev
