@@ -8,4 +8,13 @@ venv
 node_modules
 .env
 *.tar.gz
-gmi/api/commit
+
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
