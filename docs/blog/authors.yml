@@ -1,11 +1,11 @@
 authors:
   squad:
-    name: "Recap Time Squad"
+    name: "Recap Time Squad Crew"
     description: "Placeholder author on behalf of core team members"
     avatar: "https://avatars.githubusercontent.com/u/55875459"
-    url: https://recaptime.dev/crew
+    url: https://crew.recaptime.dev
   ajhalili2006:
     name: "Andrei Jiroh Halili"
-    description: "Web dev, open-source maintainer and SABDFL, autistically writing sometimes"
+    description: "Open-sourcerer and BDFL at RecapTime.dev and Autistic Filipino"
     avatar: "https://avatars.githubusercontent.com/u/34998342"
-    url: https://andreijiroh.xyz
+    url: https://andreijiroh.dev
