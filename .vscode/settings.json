@@ -1,0 +1,12 @@
+{
+    "conventionalCommits.scopes": [
+        "deps",
+        "readme",
+        "global",
+        "devenv",
+        "github-actions",
+        "gitab-ci",
+        "authors.yml"
+    ],
+    "git.alwaysSignOff": true
+}

@@ -1,14 +1,18 @@
 site_name: Material for Mkdocs - Repo Template by @lorebooks-wiki
 site_author: Recap Time Squad
 site_url: https://mkdocs-material.templates.lorebooks.wiki
+copyright: >-
+  Copyright (c) 2023-present Recap Time Squad and contributors.
+  Content licensed under CC-BY-SA-4.0
 
-edit_url: blob/main/docs
 repo_name: lorebooks-wiki/mkdocs-material-template
 repo_url: https://github.com/lorebooks-wiki/mkdocs-material-template
+edit_uri: blob/main/docs/
 
 # Theme settings
 theme:
   name: material
+  custom_dir: overrides
   icon:
     logo: octicons/book-16
     # TODO: Use Material icons instead of this
@@ -119,7 +123,8 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-plugins: 
+# plugins
+plugins:
   - search
   - blog:
       post_url_format: "{slug}"
@@ -131,9 +136,28 @@ plugins:
       authors_file: "{blog}/authors.yml"
   - rss:
       enabled: !ENV [CI, false]
-      match_path: blog/posts/.* 
+      match_path: blog/posts/.*
       date_from_meta:
         as_creation: date
       categories:
         - categories
-        - tags 
+        - tags
+
+# extras
+extra:
+  hcb:
+    org_name: Community Lorebooks
+    org_slug: lorebooks-wiki
+    parent_org_name: Recap Time Squad
+    parent_org_slug: recaptime-dev
+  footer_links:
+    - label: Use as template on GitHub
+      href: https://github.com/lorebooks-wiki/mkdocs-material-template/generate
+    - label: Fork on GitLab SaaS
+      href: https://gitlab.com/lorebooks-wiki/templates/mkdocs-material/-/forks/new
+    - label: Learn more about Community Lorebooks
+      href: https://lorebooks.wiki
+    - label: "Hey, what's HCB?"
+      href: https://hackclub.com/fiscal-sponsorship
+extra_css:
+  - assets/stylesheets/theme.css
