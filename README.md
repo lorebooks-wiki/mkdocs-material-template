@@ -3,16 +3,20 @@
 [![join chat on zulip](https://img.shields.io/badge/zulip-join%20chat-blue?style=flat-square&logo=zulip)](https://recaptime-dev.zulipchat.com)
 
 A Mkdocs repo template, with @squidfunk's Material theme included and some lorebooks.wiki specifics,
-especially on CI and configurations. If you use this repo to create a new wiki within our namespace,
-you'll be notified through an automated process in the future to update lorebooks.wiki specific configs
-and files into your local copy.
+especially on CI and configurations, and addons like footer links, and a way to show fiscal sponsorship status
+with Hack Club via HCB.
 
 ## Use this repo
 
 * **GitHub**: [Use as repo template](https://github.com/new?template_name=mkdocs-material-template&template_owner=lorebooks-wiki) or just fork
-* **GitLab and others**: Duplicate/clone/fork this repo into your namespace where you can create repositories
+* **GitLab and others**: Duplicate/clone/fork this repo into your namespace, where you can create repositories
 
-You can see the demo at <https://mkdocs-material.templates.lorebooks.eu.org> for instructions on setup and preview the config we have did.
+You can see the demo at <https://mkdocs-material.templates.lorebooks.wiki> for instructions on setup and preview the config we have done.
+
+## Try this template in a cloud dev environment
+
+* Codespaces: [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/lorebooks-wiki/mkdocs-material-template?quickstart=1)
+* Firebase Studio (f.k.a. Project IDX): [![Open in Firebase Studio](https://cdn.firebasestudio.dev/btn/open_blue_32.svg)](https://studio.firebase.google.com/new?template=https%3A%2F%2Fgithub.com%2Florebooks-wiki%2Fmkdocs-material-template.git)
 
 ## License
 
