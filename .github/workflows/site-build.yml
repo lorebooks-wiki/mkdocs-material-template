@@ -60,18 +60,17 @@ jobs:
             buildkit-
 
       - name: Install dependencies
-        run: sudo apt-get install pngquant
+        run: sudo apt-get install --yes pngquant libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev pipenv
 
       - name: Install Python dependencies
-        run: pip install -r requirements.txt
+        run: pipenv install --deploy --ignore-pipfile
 
       - name: Deploy documentation
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           PYTHONPATH: .
         run: |
-          mkdocs build --clean
-          mkdocs --version
+          pienv run mkdocs build --clean
 
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
