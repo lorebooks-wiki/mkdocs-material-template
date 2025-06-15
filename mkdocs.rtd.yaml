@@ -1,0 +1,8 @@
+# This Mkdocs configuration file is used for builds on Read the Docs Community/Business.
+INHERIT: mkdocs.yml
+site_name: Material for Mkdocs - Repo Template by @lorebooks-wiki
+site_author: Recap Time Squad
+site_url: !ENV READTHEDOCS_CANONICAL_URL
+docs_dir: docs
+extra_javascript:
+- assets/javascripts/readthedocs.js
