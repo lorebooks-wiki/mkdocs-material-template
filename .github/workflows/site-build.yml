@@ -28,6 +28,7 @@ on:
 env:
   PYTHON_VERSION: "3.13"
   NODE_VERSION: "22"
+  WRANGLER_CLI_VERSION: "4.20.1"
 
 permissions:
   contents: write
@@ -129,3 +130,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: ${{ env.WRANGLER_CLI_VERSION }}
