@@ -1,4 +1,5 @@
 # Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+# Copyright (c) 2023-2025 Andrei Jiroh Halili <ajhalili2006@crew.recaptime.dev>
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to
@@ -25,16 +26,20 @@ on:
       - main
 
 env:
-  PYTHON_VERSION: 3.x
+  PYTHON_VERSION: "3.13"
+  NODE_VERSION: "22"
 
 permissions:
   contents: write
   id-token: write
   pages: write
+  deployments: write
+  statuses: write
+  checks: write
 
 jobs:
-  gh-pages:
-    name: github pages
+  build:
+    name: build site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -47,30 +52,53 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Set the date environmental variable
+      - name: Set the date environmental variable for weekly cache
         run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
 
       - name: Set up build cache
         uses: actions/cache@v4
         id: cache
         with:
-          key: buildkit-${{ env.cache_id }}
+          key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
-            buildkit-
+            mkdocs-material-
 
       - name: Install dependencies
-        run: sudo apt-get install --yes pngquant libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev pipenv
-
-      - name: Install Python dependencies
-        run: pipenv install --deploy --ignore-pipfile
-
-      - name: Deploy documentation
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          PYTHONPATH: .
         run: |
-          pienv run mkdocs build --clean
+          sudo apt-get install --yes pngquant libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev pipenv
+          pipenv install --deploy --ignore-pipfile
+
+      - name: Build documentation
+        run: |
+          pipenv run build --clean
+
+      - name: Save build cache
+        uses: actions/cache/save@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+
+      - name: Upload build artifacts for next steps
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-build-${{ github.sha }}
+          path: site
+  gh-pages:
+    name: github pages
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-build-${{ github.sha }}
+          path: site
 
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
@@ -79,9 +107,25 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-
-      - name: Save build cache
-        uses: actions/cache/save@v4
+  cloudflare:
+    name: cloudflare workers sites
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          key: mkdocs-material-${{ hashfiles('.cache/**') }}
-          path: .cache
+          fetch-depth: 0
+      
+      - name: Fetch build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-build-${{ github.sha }}
+          path: site
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

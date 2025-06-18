@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/recaptimedev-labs/workers-config-schema/refs/heads/main/config-schema.json",
+  "account_id": "b449d122b93967017aaaca1422691e68",
+  "name": "mkdocs-material-template",
+  "compatibility_date": "2025-06-16",
+  "assets": {
+    "directory": "site",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": false
+  }
+}
