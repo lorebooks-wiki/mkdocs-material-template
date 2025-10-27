@@ -96,7 +96,7 @@ jobs:
           fetch-depth: 0
 
       - name: Fetch build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: docs-build-${{ github.sha }}
           path: site
@@ -119,7 +119,7 @@ jobs:
           fetch-depth: 0
       
       - name: Fetch build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: docs-build-${{ github.sha }}
           path: site
