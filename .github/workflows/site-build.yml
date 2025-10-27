@@ -81,7 +81,7 @@ jobs:
           path: .cache
 
       - name: Upload build artifacts for next steps
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: docs-build-${{ github.sha }}
           path: site
